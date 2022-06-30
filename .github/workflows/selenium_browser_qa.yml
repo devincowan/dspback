@@ -44,7 +44,6 @@ jobs:
       # https://github.com/marketplace/actions/setup-chromedriver
       # uses: nanasess/setup-chromedriver@master
       uses: actions/checkout@v2
-      uses: nanasess/setup-chromedriver@v1
         # with:
           # Optional: do not specify to match Chrome's version
           # chromedriver-version: '88.0.4324.96'
