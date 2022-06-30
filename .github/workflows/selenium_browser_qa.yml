@@ -72,6 +72,6 @@ jobs:
     - name: Archive code coverage results
       uses: actions/checkout@v3
       with:
-        path: QA-AutomationEngine/se-browser-test-coverage.txt
+        path: se-browser-test-coverage.txt
 
 
