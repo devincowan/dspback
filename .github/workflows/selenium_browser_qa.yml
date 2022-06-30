@@ -23,6 +23,7 @@ jobs:
 
     # TODO clone QA-automation engine
     - name: Clone QA Engine
+      uses: actions/checkout@v2
       with:
         name: CUAHSI/QA-AutomationEngine
         path: QA-AutomationEngine
