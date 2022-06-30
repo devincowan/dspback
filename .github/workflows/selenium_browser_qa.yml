@@ -63,6 +63,9 @@ jobs:
       working-directory: QA-AutomationEngine
       run: ./hydrotest dsp DspHydroshareTestSuite --browser chrome --base https://dsp-alpha.criticalzone.org/ 2>&1 | tee -a se-browser-test-coverage.txt
 
+    - name: tets
+      working-directory: QA-AutomationEngine
+      run: echo "hello" >> se-browser-test-coverage.txt
     # TODO: does something like this exist for selenium coverage?
     # - name: Comment coverage
     #   uses: coroo/pytest-coverage-commentator@v1.0.2
