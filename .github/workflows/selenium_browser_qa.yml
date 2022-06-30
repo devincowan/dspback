@@ -59,7 +59,7 @@ jobs:
     #   run: make install
       
     - name: Run Tests
-      working-directory: ./QA-AutomationEngine
+      working-directory: QA-AutomationEngine
       run: ./hydrotest dsp DspHydroshareTestSuite --browser chrome --base https://dsp-alpha.criticalzone.org/ > se-browser-test-coverage.txt
 
     # TODO: does something like this exist for selenium coverage?
