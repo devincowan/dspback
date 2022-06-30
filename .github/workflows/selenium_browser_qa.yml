@@ -41,8 +41,8 @@ jobs:
         pip install -r requirements.txt
 
     - name: Prepare Selenium
-      # https://github.com/marketplace/actions/setup-chromedriver
       uses: nanasess/setup-chromedriver@master
+      # https://github.com/marketplace/actions/setup-chromedriver
     #   uses: actions/checkout@v2
     #     # with:
     #       # Optional: do not specify to match Chrome's version
