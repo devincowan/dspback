@@ -22,6 +22,11 @@ jobs:
     - uses: actions/checkout@v2
 
     # TODO clone QA-automation engine
+    - name: Clone QA Engine
+      with:
+        name: CUAHSI/QA-AutomationEngine
+        path: QA-AutomationEngine
+        ref: master
 
     - name: Set up Python 3.8
       uses: actions/setup-python@v1
@@ -52,7 +57,8 @@ jobs:
     # - name: Install dependencies
     #   run: make install
       
-    - name: Run Tests and Build Coverage
+    - name: Run Tests
+      working-directory: ./QA-AutomationEngine
       run: ./hydrotest dsp DspHydroshareTestSuite --browser chrome --base https://dsp-alpha.criticalzone.org/ > se-browser-test-coverage.txt
 
     # TODO: does something like this exist for selenium coverage?
