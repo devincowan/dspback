@@ -61,7 +61,7 @@ jobs:
       
     - name: Run Tests
       working-directory: QA-AutomationEngine
-      run: ./hydrotest dsp DspHydroshareTestSuite --browser chrome --base https://dsp-alpha.criticalzone.org/ > se-browser-test-coverage.txt
+      run: ./hydrotest dsp DspHydroshareTestSuite --browser chrome --base https://dsp-alpha.criticalzone.org/ 2>&1 | tee -a se-browser-test-coverage.txt
 
     # TODO: does something like this exist for selenium coverage?
     # - name: Comment coverage
