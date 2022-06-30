@@ -68,4 +68,10 @@ jobs:
     #   with:
     #     pytest-coverage: pytest-coverage.txt
 
+    - name: Archive code coverage results
+        uses: actions/upload-artifact@v3
+        with:
+          name: se-browser-test-coverage
+          path: se-browser-test-coverage.txt
+
 
