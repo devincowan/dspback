@@ -56,7 +56,7 @@ jobs:
       run: make build
     
     - name: Build containers
-      run: build-dspfront
+      run: make build-dspfront
 
     - name: Startup containers
       run: make up-all-d
