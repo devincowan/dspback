@@ -1,0 +1,64 @@
+name: Selenium Browser QA Tests
+
+on:
+  push:
+  # todo change this to develop
+    # branches: [ develop ]
+    branches: [ selenium-workflow ]
+  pull_request:
+    # branches: [ develop ]
+    branches: [ selenium-workflow ]
+  workflow_dispatch:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    # services:
+    #   selenium:
+    #     image: selenium/standalone-chrome
+
+    steps:
+    - uses: actions/checkout@v2
+
+    # TODO clone QA-automation engine
+
+    - name: Set up Python 3.7
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.7
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Prepare Selenium
+      # https://github.com/marketplace/actions/setup-chromedriver
+      uses: nanasess/setup-chromedriver@master
+
+    # TODO: for now, we will just target dsp alpha but we sould really build develop and test that...
+    # kinda the whole point...
+    # - name: Build containers
+    #   run: make build
+
+    # - name: Startup containers
+    #   run: make up-d
+
+    # - name: Sleep for 10 seconds
+    #   run: sleep 10s
+    #   shell: bash
+      
+    # - name: Install dependencies
+    #   run: make install
+      
+    - name: Run Tests and Build Coverage
+      run: ./hydrotest dsp DspHydroshareTestSuite --browser chrome --base https://dsp-alpha.criticalzone.org/ > se-browser-test-coverage.txt
+
+    # TODO: does something like this exist for selenium coverage?
+    # - name: Comment coverage
+    #   uses: coroo/pytest-coverage-commentator@v1.0.2
+    #   with:
+    #     pytest-coverage: pytest-coverage.txt
+
+
