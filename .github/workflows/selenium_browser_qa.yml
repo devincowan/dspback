@@ -37,6 +37,7 @@ jobs:
     - name: Install dependencies
       working-directory: QA-AutomationEngine
       run: pip install -r requirements.txt
+      run: pip install boto3
 
     - name: Prepare Selenium
       uses: nanasess/setup-chromedriver@master
