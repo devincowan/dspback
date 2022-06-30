@@ -67,11 +67,15 @@ jobs:
       
     # - name: Install dependencies
     #   run: make install
+
+    - name: Create Output Dir
+      working-directory: QA-AutomationEngine
+      run: mkdir output
       
     - name: Run Tests
       working-directory: QA-AutomationEngine
       # run: ./hydrotest dsp DspHydroshareTestSuite --browser chrome --base https://dsp-alpha.criticalzone.org/ 2>&1 | tee -a se-browser-test-coverage.txt
-      run: ./hydrotest dsp DspHydroshareTestSuite --browser chrome --base https:localhost 2>&1 | tee -a se-browser-test-coverage.txt
+      run: ./hydrotest dsp DspHydroshareTestSuite --browser chrome --base https:localhost 2>&1 | tee -a output/hydroshare-browser-test-coverage.txt
 
     # TODO: does something like this exist for selenium coverage?
     # - name: Comment coverage
@@ -82,6 +86,7 @@ jobs:
     - name: Archive code coverage results
       uses: actions/upload-artifact@v3
       with:
-        path: QA-AutomationEngine/se-browser-test-coverage.txt
+        name: QA-ARTIFACTS
+        path: QA-AutomationEngine/output
 
 
