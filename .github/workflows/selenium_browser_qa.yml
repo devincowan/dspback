@@ -25,7 +25,7 @@ jobs:
     - name: Clone QA Engine
       uses: actions/checkout@v2
       with:
-        name: CUAHSI/QA-AutomationEngine
+        repository: CUAHSI/QA-AutomationEngine
         path: QA-AutomationEngine
         ref: master
 
