@@ -58,13 +58,12 @@ jobs:
     #   shell: bash
 
     - name: Prepare Firefox
-      uses: browser-actions/setup-firefox@latest
+      # uses: browser-actions/setup-firefox@latest
+      run: sudo apt install firefox
+
       
     - name: Firefox version
       run: firefox --version
-        
-    - name: Install Selenium
-      run: pip install selenium
 
     - name: Geckodriver
       run: sudo apt install firefox-geckodriver
