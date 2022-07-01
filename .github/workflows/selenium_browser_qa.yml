@@ -90,6 +90,7 @@ jobs:
       
     - name: Run Tests
       working-directory: QA-AutomationEngine
+      options: --user 1001
       # https://dsp-alpha.criticalzone.org/
       run: |
         ./hydrotest dsp DspHydroshareTestSuite --base https://dsp-alpha.criticalzone.org/ 2>&1 | tee -a output/hydroshare-browser-test-coverage.txt
