@@ -38,7 +38,6 @@ jobs:
       run: pip install -r requirements.txt
 
     - name: Prepare Selenium
-      uses: "composite"
       run: |
         wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
         echo "deb http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee -a /etc/apt/sources.list.d/google-chrome.list
