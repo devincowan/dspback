@@ -58,7 +58,7 @@ jobs:
     #   shell: bash
 
     - name: Prepare Selenium
-      uses: nanasess/setup-chromedriver@v1.0.5
+      uses: nanasess/setup-chromedriver@v1
       # https://github.com/marketplace/actions/setup-chromedriver
       # with:
       #   # Optional: do not specify to match Chrome's version
