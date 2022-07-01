@@ -56,6 +56,16 @@ jobs:
     #     unzip chromedriver_linux64.zip && chmod +x chromedriver && sudo mv chromedriver /usr/local/bin
     #     chromedriver -version
     #   shell: bash
+
+    - name: Prepare Firefox
+      uses: browser-actions/setup-firefox@latest
+      
+    - name: Firefox version
+      run: firefox --version
+        
+    - name: Install Selenium
+      run: pip install selenium
+
     - name: Geckodriver
       run: sudo apt install firefox-geckodriver
 
