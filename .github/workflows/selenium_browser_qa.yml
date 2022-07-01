@@ -55,6 +55,7 @@ jobs:
         unzip chromedriver_linux64.zip && chmod +x chromedriver && sudo mv chromedriver /usr/local/bin
         chromedriver -version
       shell: bash
+    # - name: Prepare Selenium
     #   uses: nanasess/setup-chromedriver@v1.0.5
     #   # https://github.com/marketplace/actions/setup-chromedriver
     #   with:
