@@ -26,6 +26,7 @@ jobs:
       with:
         repository: CUAHSI/QA-AutomationEngine
         path: QA-AutomationEngine
+        # TODO: set this back to master
         ref: sandbox
 
     - name: Set up Python 3.8
