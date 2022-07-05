@@ -127,6 +127,10 @@ jobs:
     
     - name: Pass
       working-directory: QA-AutomationEngine
+      run: cat output/pass.txt
+
+    - name: Pass
+      working-directory: QA-AutomationEngine
       run: if grep "FAILED (" output/pass.txt; then exit 1; else grep "PASSED (" output/pass.txt; fi
 
     - name: Fail
