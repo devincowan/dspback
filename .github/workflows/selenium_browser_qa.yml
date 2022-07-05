@@ -126,7 +126,7 @@ jobs:
 
     - name: Check whether passing
       working-directory: QA-AutomationEngine/output
-      run: if grep -rl "FAILED (" .; then exit 1; else grep -rl "^Ran [0-9]* test in [0-9]*\.*[0-9]*s$\n\n^OK" .; fi
+      run: if grep -rl "FAILED (" . >/dev/null; then grep -rh "FAIL:" . && exit 1; else grep -rh "^Ran [0-9]* test in [0-9]*\.*[0-9]*s$\n\n^OK" .; fi
 
     - name: Archive test results
       uses: actions/upload-artifact@v3
