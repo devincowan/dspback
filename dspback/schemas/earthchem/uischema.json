@@ -45,6 +45,7 @@
           ]
         },
         {
+          "label": "Keywords",
           "type": "Control",
           "scope": "#/properties/keywords"
         }
@@ -60,11 +61,13 @@
       "options": {
         "detail": {
           "type": "Group",
+          "label": "Lead Author",
           "elements": [
             {
               "type": "HorizontalLayout",
               "elements": [
                 {
+                  "label": "First Name",
                   "type": "Control",
                   "scope": "#/properties/givenName"
                 },
@@ -105,6 +108,7 @@
               "type": "HorizontalLayout",
               "elements": [
                 {
+                  "label": "First Name",
                   "type": "Control",
                   "scope": "#/properties/givenName"
                 },
@@ -133,23 +137,19 @@
     },
     {
       "type": "Control",
+      "label": "Spatial Coverage Information",
       "scope": "#/properties/spatialCoverage"
     },
     {
       "type": "Control",
       "scope": "#/properties/identifiers",
       "options": {
-        "elementLabelProp": "scheme",
-        "childLabelProp": "identifier"
+        "elementLabelProp": "scheme"
       }
     },
     {
       "type": "Control",
-      "scope": "#/properties/fundings",
-      "options": {
-        "elementLabelProp": "identifier",
-        "childLabelProp": "identifier"
-      }
+      "scope": "#/properties/fundings"
     },
     {
       "type": "Control",
