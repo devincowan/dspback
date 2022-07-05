@@ -118,30 +118,15 @@ jobs:
       working-directory: QA-AutomationEngine
       # https://dsp-alpha.criticalzone.org/
       run: |
-        ./hydrotest dsp DspHydroshareTestSuite.test_hs_000019_multiple_metadata_persists --browser chrome --base https://dsp-alpha.criticalzone.org/ 2>&1 | tee -a output/fail.txt
-        ./hydrotest dsp DspHydroshareTestSuite.test_hs_000002_auth_then_nav_to_submit --browser chrome --base https://dsp-alpha.criticalzone.org/ 2>&1 | tee -a output/pass.txt
-        # ./hydrotest dsp DspHydroshareTestSuite --browser chrome --base https://localhost 2>&1 | tee -a output/hydroshare-browser-test-coverage.txt
-        # ./hydrotest dsp DspExternalTestSuite --browser chrome --base https://localhost 2>&1 | tee -a output/external-browser-test-coverage.txt
-        # ./hydrotest dsp DspZenodoTestSuite --browser chrome --base https://localhost 2>&1 | tee -a output/zenodo-browser-test-coverage.txt
-        # ./hydrotest dsp DspEarthchemTestSuite --browser chrome --base https://localhost 2>&1 | tee -a output/earthchem-browser-test-coverage.txt
+        ./hydrotest dsp DspHydroshareTestSuite --browser chrome --base https://dsp-alpha.criticalzone.org/ 2>&1 | tee -a output/hydroshare-browser-test-coverage.txt
+        ./hydrotest dsp DspExternalTestSuite --browser chrome --base https://dsp-alpha.criticalzone.org/ 2>&1 | tee -a output/external-browser-test-coverage.txt
+        ./hydrotest dsp DspZenodoTestSuite --browser chrome --base https://dsp-alpha.criticalzone.org/ 2>&1 | tee -a output/zenodo-browser-test-coverage.txt
+        ./hydrotest dsp DspEarthchemTestSuite --browser chrome --base https://dsp-alpha.criticalzone.org/ 2>&1 | tee -a output/earthchem-browser-test-coverage.txt
     
-    - name: Pass
-      working-directory: QA-AutomationEngine
-      run: cat output/pass.txt
 
-    - name: Pass
-      working-directory: QA-AutomationEngine
-      run: if grep "FAILED (" output/pass.txt; then exit 1; else grep "PASSED (" output/pass.txt; fi
-
-    - name: Fail
-      working-directory: QA-AutomationEngine
-      run: if grep "FAILED (" output/fail.txt; then exit 1; fi
-
-    # TODO: does something like this exist for selenium coverage?
-    # - name: Comment coverage
-    #   uses: coroo/pytest-coverage-commentator@v1.0.2
-    #   with:
-    #     pytest-coverage: pytest-coverage.txt
+    - name: Check whether passing
+      working-directory: QA-AutomationEngine/output
+      run: if grep -rl "FAILED (" .; then exit 1; else grep -rl "^Ran [0-9]* test in [0-9]*\.*[0-9]*s$\n\n^OK" .; fi
 
     - name: Archive test results
       uses: actions/upload-artifact@v3
