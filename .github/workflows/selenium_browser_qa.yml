@@ -88,20 +88,20 @@ jobs:
 
 
 
+# TODO: uncommend build
 
-
-    - name: Build DSPBack
-      run: make build
+    # - name: Build DSPBack
+    #   run: make build
     
-    - name: Build DSPFront
-      run: make build-dspfront
+    # - name: Build DSPFront
+    #   run: make build-dspfront
 
-    - name: Startup containers
-      run: make up-all-d
+    # - name: Startup containers
+    #   run: make up-all-d
 
-    - name: Sleep for 10 seconds
-      run: sleep 10s
-      shell: bash
+    # - name: Sleep for 10 seconds
+    #   run: sleep 10s
+    #   shell: bash
       
     # - name: Install dependencies
     #   run: make install
@@ -118,10 +118,11 @@ jobs:
       working-directory: QA-AutomationEngine
       # https://dsp-alpha.criticalzone.org/
       run: |
-        ./hydrotest dsp DspHydroshareTestSuite --browser chrome --base https://localhost 2>&1 | tee -a output/hydroshare-browser-test-coverage.txt
-        ./hydrotest dsp DspExternalTestSuite --browser chrome --base https://localhost 2>&1 | tee -a output/external-browser-test-coverage.txt
-        ./hydrotest dsp DspZenodoTestSuite --browser chrome --base https://localhost 2>&1 | tee -a output/zenodo-browser-test-coverage.txt
-        ./hydrotest dsp DspEarthchemTestSuite --browser chrome --base https://localhost 2>&1 | tee -a output/earthchem-browser-test-coverage.txt
+        ./hydrotest dsp DspHydroshareTestSuite.test_hs_000019_multiple_metadata_persists --browser chrome --base https://dsp-alpha.criticalzone.org/ 2>&1 | tee -a output/hydroshare-browser-test-coverage.txt
+        # ./hydrotest dsp DspHydroshareTestSuite --browser chrome --base https://localhost 2>&1 | tee -a output/hydroshare-browser-test-coverage.txt
+        # ./hydrotest dsp DspExternalTestSuite --browser chrome --base https://localhost 2>&1 | tee -a output/external-browser-test-coverage.txt
+        # ./hydrotest dsp DspZenodoTestSuite --browser chrome --base https://localhost 2>&1 | tee -a output/zenodo-browser-test-coverage.txt
+        # ./hydrotest dsp DspEarthchemTestSuite --browser chrome --base https://localhost 2>&1 | tee -a output/earthchem-browser-test-coverage.txt
     
     - name: Pass
       working-directory: QA-AutomationEngine
